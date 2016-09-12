@@ -13,6 +13,7 @@
 		587006981D861F43000C60AB /* pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 587006961D861F43000C60AB /* pokedex.xcdatamodeld */; };
 		5870069A1D861F43000C60AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 587006991D861F43000C60AB /* Assets.xcassets */; };
 		5870069D1D861F43000C60AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5870069B1D861F43000C60AB /* LaunchScreen.storyboard */; };
+		58A10F171D862A8E00F1AF44 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 58A10F161D862A8E00F1AF44 /* pokemon.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		587006991D861F43000C60AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5870069C1D861F43000C60AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5870069E1D861F43000C60AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		58A10F161D862A8E00F1AF44 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				5870068F1D861F43000C60AB /* AppDelegate.swift */,
+				58A10F161D862A8E00F1AF44 /* pokemon.csv */,
 				587006911D861F43000C60AB /* ViewController.swift */,
 				587006931D861F43000C60AB /* Main.storyboard */,
 				587006991D861F43000C60AB /* Assets.xcassets */,
@@ -128,6 +131,7 @@
 			files = (
 				5870069D1D861F43000C60AB /* LaunchScreen.storyboard in Resources */,
 				5870069A1D861F43000C60AB /* Assets.xcassets in Resources */,
+				58A10F171D862A8E00F1AF44 /* pokemon.csv in Resources */,
 				587006951D861F43000C60AB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,6 +297,7 @@
 				587006A31D861F43000C60AB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
