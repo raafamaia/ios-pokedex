@@ -38,7 +38,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P5E-Ne-7iB">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="P5E-Ne-7iB" customClass="PokeCell" customModule="pokedex" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="110" height="110"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -71,6 +71,10 @@
                                             <constraint firstAttribute="trailing" secondItem="c2S-pX-7c4" secondAttribute="trailing" id="hYJ-or-p3P"/>
                                             <constraint firstItem="cYy-KH-jcc" firstAttribute="top" secondItem="c2S-pX-7c4" secondAttribute="bottom" id="y8r-gi-vME"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="nameLbl" destination="cYy-KH-jcc" id="YQy-tq-0sr"/>
+                                            <outlet property="thumbImg" destination="c2S-pX-7c4" id="vey-8R-imL"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -106,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="539"/>
+            <point key="canvasLocation" x="327" y="511"/>
         </scene>
     </scenes>
     <resources>
