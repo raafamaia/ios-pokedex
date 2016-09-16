@@ -11,8 +11,8 @@ import Foundation
 class Pokemon {
     
     //#MARK: Private Atributes
-    private var _name: String!
-    private var _pokedexId: Int!
+    fileprivate var _name: String!
+    fileprivate var _pokedexId: Int!
     
     //#MARK: Getters/Setters
     var name: String {
