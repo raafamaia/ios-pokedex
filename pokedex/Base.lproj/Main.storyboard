@@ -6,6 +6,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="pokemon.ttf">
+            <string>PokemonSolidNormal</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -23,8 +28,29 @@
                                 <frame key="frameInset" minY="99" width="375" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8GI-9G-peU">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OaX-Tt-0Dx">
+                                        <frame key="frameInset" minX="338" minY="18" width="29" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="music"/>
+                                        <connections>
+                                            <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zrx-yB-dBs"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokedex" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Prh-3q-5GR">
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="VdA-av-UTL"/>
+                                            <constraint firstAttribute="width" constant="126" id="oom-40-4Y2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="PokemonSolidNormal" family="Pokemon Solid" pointSize="25"/>
+                                        <color key="textColor" red="0.96899727784148648" green="0.99047444006060892" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Prh-3q-5GR" secondAttribute="bottom" constant="5" id="csF-dF-nVG"/>
+                                    <constraint firstItem="Prh-3q-5GR" firstAttribute="centerX" secondItem="8GI-9G-peU" secondAttribute="centerX" id="lYO-Pl-egh"/>
                                     <constraint firstAttribute="height" constant="55" id="vha-XR-m0S"/>
                                 </constraints>
                             </view>
@@ -109,11 +135,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="325.60000000000002" y="510.49475262368821"/>
+            <point key="canvasLocation" x="-114" y="498"/>
         </scene>
     </scenes>
     <resources>
         <image name="1" width="96" height="96"/>
         <image name="bg" width="1920" height="1200"/>
+        <image name="music" width="100" height="100"/>
     </resources>
 </document>

@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
-    //#MARK: Outlets
+    //#MARK: @IBOutlets
     
     @IBOutlet weak var collection: UICollectionView!
     
     //#MARK: Properties
     
     var pokemons = [Pokemon]()
+    var musicPlayer: AVAudioPlayer!
     
     //#MARK: Events
     
@@ -27,7 +29,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.dataSource = self
         
         parsePokemonCSV()
+        initAudio()
     }
+    
+    //#MARK: Functions
     
     func parsePokemonCSV() {
         let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")!
@@ -48,6 +53,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             print(err.debugDescription)
         }
     }
+    
+    func initAudio() {
+        
+        let path = Bundle.main.path(forResource: "music", ofType: "mp3")!
+        
+        do {
+            musicPlayer = try AVAudioPlayer(contentsOf: URL(string: path)!)
+            musicPlayer.prepareToPlay()
+            musicPlayer.numberOfLoops = -1
+            musicPlayer.play()
+        } catch let err as NSError {
+            print(err.debugDescription)
+        }
+        
+    }
+    
     
     //#MARK: Protocol Events
 
@@ -76,6 +97,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 105, height: 105)
+    }
+    
+    //#MARK: @IBActions
+    
+    @IBAction func musicBtnPressed(_ sender: UIButton!) {
+        
+        if musicPlayer.isPlaying {
+            musicPlayer.stop()
+            sender.alpha = 0.2
+        } else {
+            musicPlayer.play()
+            sender.alpha = 1.0
+        }
+        
     }
 }
 
