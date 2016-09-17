@@ -29,7 +29,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collection.delegate = self
         collection.dataSource = self
+        
         searchBar.delegate = self
+        searchBar.returnKeyType = UIReturnKeyType.done
+        searchBar.enablesReturnKeyAutomatically = false
+        searchBar.setShowsCancelButton(true, animated: true)
         
         parsePokemonCSV()
         prepareAudio()
@@ -84,14 +88,26 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             filteredPokemons = pokemons.filter({ (pokemon) -> Bool in
                 pokemon.name.range(of: lower) != nil
             })
-            
-            collection.reloadData()
-        } else {
-            isSearching = false
-            view.endEditing(true)
-            collection.reloadData()
         }
         
+        collection.reloadData()
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        isSearching = false
+        searchBar.text = ""
+        searchBar.endEditing(true)
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        //isSearching = false
+        collection.reloadData()
+        view.endEditing(true)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
