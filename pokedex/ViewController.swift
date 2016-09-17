@@ -9,16 +9,18 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate {
 
     //#MARK: @IBOutlets
     
     @IBOutlet weak var collection: UICollectionView!
-    
+    @IBOutlet weak var searchBar: UISearchBar!
     //#MARK: Properties
     
     var pokemons = [Pokemon]()
+    var filteredPokemons = [Pokemon]()
     var musicPlayer: AVAudioPlayer!
+    var isSearching = false
     
     //#MARK: Events
     
@@ -27,9 +29,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collection.delegate = self
         collection.dataSource = self
+        searchBar.delegate = self
         
         parsePokemonCSV()
-        initAudio()
+        prepareAudio()
     }
     
     //#MARK: Functions
@@ -54,7 +57,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func initAudio() {
+    func prepareAudio() {
         
         let path = Bundle.main.path(forResource: "music", ofType: "mp3")!
         
@@ -62,7 +65,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             musicPlayer = try AVAudioPlayer(contentsOf: URL(string: path)!)
             musicPlayer.prepareToPlay()
             musicPlayer.numberOfLoops = -1
-            musicPlayer.play()
+            //musicPlayer.play()
         } catch let err as NSError {
             print(err.debugDescription)
         }
@@ -71,10 +74,32 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     //#MARK: Protocol Events
-
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        isSearching = (searchBar.text == nil || searchBar.text!.isEmpty) ? false : true
+        
+        if isSearching {
+            let lower = searchBar.text!.lowercased()
+            filteredPokemons = pokemons.filter({ (pokemon) -> Bool in
+                pokemon.name.range(of: lower) != nil
+            })
+            
+            collection.reloadData()
+        } else {
+            isSearching = false
+            view.endEditing(true)
+            collection.reloadData()
+        }
+        
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
-            let pokemon = pokemons[indexPath.row]
+            
+            let pokemon: Pokemon!
+            pokemon = (isSearching) ? filteredPokemons[indexPath.row] : pokemons[indexPath.row]
+            
             cell.configureCell(pokemon)
             
             return cell
@@ -88,7 +113,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemons.count
+        return (isSearching) ? filteredPokemons.count : pokemons.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
