@@ -77,7 +77,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     
-    //#MARK: Protocol Events
+    //#MARK: SearchBar Events
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
@@ -109,6 +109,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         collection.reloadData()
         view.endEditing(true)
     }
+    
+    //#MARK: CollectionView Events
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
