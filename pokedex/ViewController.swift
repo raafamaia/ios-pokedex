@@ -16,7 +16,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     //#MARK: Properties
     
-    var pokemon = [Pokemon]()
+    var pokemons = [Pokemon]()
     
     //#MARK: Events
     
@@ -36,7 +36,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let csv = try CSV(contentsOfURL: path)
             let rows = csv.rows
             
-            print(rows)
+            for row in rows {
+                let pokeId = Int(row["id"]!)!
+                let name = row["identifier"]!
+                
+                let pokemon = Pokemon(name: name, pokedexId: pokeId)
+                pokemons.append(pokemon)
+            }
             
         }catch let err as NSError {
             print(err.debugDescription)
@@ -47,7 +53,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokeCell", for: indexPath) as? PokeCell {
-            let pokemon = Pokemon(name: "Teste", pokedexId: indexPath.row)
+            let pokemon = pokemons[indexPath.row]
             cell.configureCell(pokemon)
             
             return cell
@@ -61,7 +67,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return pokemons.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
