@@ -14,6 +14,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collection: UICollectionView!
     
+    //#MARK: Properties
+    
+    var pokemon = [Pokemon]()
     
     //#MARK: Events
     
@@ -22,6 +25,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         collection.delegate = self
         collection.dataSource = self
+        
+        parsePokemonCSV()
+    }
+    
+    func parsePokemonCSV() {
+        let path = Bundle.main.path(forResource: "pokemon", ofType: "csv")!
+        
+        do {
+            let csv = try CSV(contentsOfURL: path)
+            let rows = csv.rows
+            
+            print(rows)
+            
+        }catch let err as NSError {
+            print(err.debugDescription)
+        }
     }
     
     //#MARK: Protocol Events
