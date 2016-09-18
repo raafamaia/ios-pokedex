@@ -212,8 +212,8 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="P3n-5J-SWU">
                                 <frame key="frameInset" minX="144" minY="99" width="215" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <mutableString key="text">sit amet, consectetur adipiscing elit. Huius, Lyco, oratione locuples, rebus ipsis ielunior. Itaque ab his ordiamur. Praeteritis, inquit, gaudeo. Sed eum qui audiebant, quoad poterant, defendebant sententiam suam. Nonne igitur tibi videntur, inquit, mala? Duo Reges: constructio interrete. Suam denique cuique naturam esse ad vivendum ducem. An me, inquam, nisi te audire vellem, censes haec dicturum fuisse? Sed vobis voluptatum perceptarum recordatio vitam beatam facit, et quidem corpore perceptarum. Ut in geometria, prima si dederis, danda sunt omnia. 
-ervire debemus.</mutableString>
+                                <string key="text">sit amet, consectetur adipiscing elit. Huius, Lyco, oratione locuples, rebus ipsis ielunior. Itaque ab his ordiamur. Praeteritis, inquit, gaudeo. Sed eum qui audiebant, quoad poterant, defendebant sententiam suam. Nonne igitur tibi videntur, inquit, mala? Duo Reges: constructio interrete. Suam denique cuique naturam esse ad vivendum ducem. An me, inquam, nisi te audire vellem, censes haec dicturum fuisse? Sed vobis voluptatum perceptarum recordatio vitam beatam facit, et quidem corpore perceptarum. Ut in geometria, prima si dederis, danda sunt omnia. 
+ervire debemus.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
