@@ -135,6 +135,7 @@
                     </view>
                     <connections>
                         <outlet property="collection" destination="4Nc-Ba-Hd3" id="2E2-Fe-D67"/>
+                        <outlet property="musicBtn" destination="OaX-Tt-0Dx" id="D7N-SU-Q6R"/>
                         <outlet property="searchBar" destination="zFy-Q6-cg1" id="2Ha-d1-HCe"/>
                         <segue destination="gK9-bh-Hsd" kind="show" identifier="DetailViewController" id="7MP-7s-T9d"/>
                     </connections>
@@ -173,6 +174,7 @@
                                         <state key="normal" image="music"/>
                                         <connections>
                                             <action selector="musicBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e3V-8r-NOB"/>
+                                            <action selector="musicBtnPressed:" destination="gK9-bh-Hsd" eventType="touchUpInside" id="qcX-1F-vmk"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qoe-Ng-8kJ">
@@ -181,6 +183,9 @@
                                             <constraint firstAttribute="height" constant="30" id="pub-XN-gDk"/>
                                         </constraints>
                                         <state key="normal" image="back"/>
+                                        <connections>
+                                            <action selector="backBtnPressed:" destination="gK9-bh-Hsd" eventType="touchUpInside" id="1rN-r2-fKZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.34509803919999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -338,6 +343,7 @@ ervire debemus.</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="musicBtn" destination="Wpw-om-oaW" id="5sd-sG-TpI"/>
                         <outlet property="nameLbl" destination="ZFY-Lm-h6T" id="k1H-Wc-MjO"/>
                     </connections>
                 </viewController>

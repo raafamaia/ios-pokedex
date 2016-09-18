@@ -15,11 +15,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var collection: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var musicBtn: UIButton!
     //#MARK: Properties
     
     var pokemons = [Pokemon]()
     var filteredPokemons = [Pokemon]()
-    var musicPlayer: AVAudioPlayer!
     var isSearching = false
     
     //#MARK: Events
@@ -36,7 +36,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         searchBar.setShowsCancelButton(true, animated: true)
         
         parsePokemonCSV()
-        prepareAudio()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setMusicBtn()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -71,21 +74,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
     
-    func prepareAudio() {
-        
-        let path = Bundle.main.path(forResource: "music", ofType: "mp3")!
-        
-        do {
-            musicPlayer = try AVAudioPlayer(contentsOf: URL(string: path)!)
-            musicPlayer.prepareToPlay()
-            musicPlayer.numberOfLoops = -1
-            //musicPlayer.play()
-        } catch let err as NSError {
-            print(err.debugDescription)
+    func setMusicBtn() {
+        if AudioService.Instance.isPlaying {
+            musicBtn.alpha = 1.0
+        } else {
+            musicBtn.alpha = 0.2
         }
-        
     }
-    
     
     //#MARK: SearchBar Events
     
@@ -157,13 +152,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBAction func musicBtnPressed(_ sender: UIButton!) {
         
-        if musicPlayer.isPlaying {
-            musicPlayer.stop()
-            sender.alpha = 0.2
+        if AudioService.Instance.isPlaying {
+            AudioService.Instance.stop()
         } else {
-            musicPlayer.play()
-            sender.alpha = 1.0
+            AudioService.Instance.play()
         }
+        
+        setMusicBtn()
         
     }
 }
