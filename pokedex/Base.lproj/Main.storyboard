@@ -204,6 +204,9 @@
                             <constraint firstAttribute="trailing" secondItem="2RR-R8-gPj" secondAttribute="trailing" id="uc0-Ni-Yi9"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="nameLbl" destination="ZFY-Lm-h6T" id="k1H-Wc-MjO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOb-Zc-sdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

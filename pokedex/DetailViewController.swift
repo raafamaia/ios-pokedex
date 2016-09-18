@@ -10,12 +10,16 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    //#MARK: @IBOutlets
+    @IBOutlet weak var nameLbl: UILabel!
+    
     //#MARK: Properties
     var pokemon: Pokemon!
     
+    //#MARK: Events
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        nameLbl.text = pokemon.name
     }
 }

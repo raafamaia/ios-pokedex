@@ -138,7 +138,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let poke = (isSearching) ? filteredPokemons[indexPath.row] : pokemons[indexPath.row]
-        performSegue(withIdentifier: "DetailVC", sender: poke)
+        performSegue(withIdentifier: "DetailViewController", sender: poke)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
