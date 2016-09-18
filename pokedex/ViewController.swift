@@ -39,6 +39,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         prepareAudio()
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DetailViewController" {
+            if let detailVC = segue.destination as? DetailViewController {
+                if let poke = sender as? Pokemon {
+                    detailVC.pokemon = poke
+                }
+            }
+        }
+    }
+    
     //#MARK: Functions
     
     func parsePokemonCSV() {
@@ -127,7 +137,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let poke = (isSearching) ? filteredPokemons[indexPath.row] : pokemons[indexPath.row]
+        performSegue(withIdentifier: "DetailVC", sender: poke)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
