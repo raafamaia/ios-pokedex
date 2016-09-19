@@ -343,8 +343,19 @@ ervire debemus.</string>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="attackLbl" destination="JO3-P8-gfv" id="cEv-7c-1mu"/>
+                        <outlet property="currentEvoImg" destination="Igf-eh-vpc" id="cUv-Y9-kbu"/>
+                        <outlet property="defenseLbl" destination="N3w-Sx-COW" id="FnV-kb-Z8x"/>
+                        <outlet property="descriptionLbl" destination="P3n-5J-SWU" id="lCA-Gk-VUZ"/>
+                        <outlet property="evoLbl" destination="owc-TO-8gf" id="2Mu-jH-gWR"/>
+                        <outlet property="heightLbl" destination="oju-Ei-tlg" id="SZx-22-oLl"/>
+                        <outlet property="mainImg" destination="lAT-oT-oQS" id="fcl-hW-sg2"/>
                         <outlet property="musicBtn" destination="Wpw-om-oaW" id="5sd-sG-TpI"/>
                         <outlet property="nameLbl" destination="ZFY-Lm-h6T" id="k1H-Wc-MjO"/>
+                        <outlet property="nextEvoImg" destination="M8K-Dg-TzL" id="uZk-EQ-AEQ"/>
+                        <outlet property="pokeIdLbl" destination="KDj-e0-TNU" id="NCU-iJ-hbD"/>
+                        <outlet property="typeLbl" destination="3nf-NT-MWi" id="Omz-Yj-l8L"/>
+                        <outlet property="weightLbl" destination="WNe-df-4iO" id="Kvw-wd-TB0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DOb-Zc-sdc" userLabel="First Responder" sceneMemberID="firstResponder"/>
