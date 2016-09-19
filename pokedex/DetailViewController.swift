@@ -32,6 +32,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLbl.text = pokemon.name
+        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        
+        pokemon.downloadPokemonDetails {
+            //this will be called after downloading a pokemon
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
