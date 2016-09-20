@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "Pokemon.(downloadPokemonDetails(completed : () -&gt; ()) -&gt; ()).(closure #1):pokemon.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "descArr[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

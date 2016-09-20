@@ -32,10 +32,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         nameLbl.text = pokemon.name
-        mainImg.image = UIImage(named: "\(pokemon.pokedexId)")
+        let img = UIImage(named: "\(pokemon.pokedexId)")
+        mainImg.image = img
+        currentEvoImg.image = img
+        
         
         pokemon.downloadPokemonDetails {
             //this will be called after downloading a pokemon
+            self.updateUI()
         }
     }
     
@@ -44,6 +48,31 @@ class DetailViewController: UIViewController {
     }
     
     //#MARK: Functions
+    func updateUI(){
+        descriptionLbl.text = pokemon.description
+        typeLbl.text = pokemon.type
+        defenseLbl.text = pokemon.height
+        attackLbl.text = pokemon.attack
+        heightLbl.text = pokemon.height
+        weightLbl.text = pokemon.weight
+        evoLbl.text = "\(pokemon.nextEvolutionName)"
+        pokeIdLbl.text = " \(pokemon.pokedexId)"
+        
+        if pokemon.nextEvolutionId == "?" {
+            evoLbl.text = "No Evolutions"
+            nextEvoImg.isHidden = true
+        } else {
+            nextEvoImg.isHidden = false
+            nextEvoImg.image = UIImage(named: pokemon.nextEvolutionId)
+            
+            evoLbl.text = "Next Evolution: \(pokemon.nextEvolutionName) - LVL \(pokemon.nextEvolutionLvl)"
+        }
+        
+        
+        
+        
+    }
+    
     func setMusicBtn() {
         if AudioService.Instance.isPlaying {
             musicBtn.alpha = 1.0
